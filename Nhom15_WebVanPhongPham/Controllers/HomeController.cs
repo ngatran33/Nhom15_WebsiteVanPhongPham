@@ -14,12 +14,7 @@ namespace Nhom15_WebVanPhongPham.Controllers
         DBNhom15 db = new DBNhom15();
         
 
-        public ActionResult ProductList()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+      
         public ActionResult Account()
         {
             ViewBag.Message = "Your contact page.";
@@ -109,6 +104,18 @@ namespace Nhom15_WebVanPhongPham.Controllers
                 return HttpNotFound();
             }
             return View(sanPham);
+        }
+        public ActionResult ProductList(int id, int? page)
+        {
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            var sanphams = db.SanPhams.Where(h => h.MaDM.Equals(id)).Select(h => h).OrderBy(s => s.MaSp);
+            return View(sanphams.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult Header()
+        {
+            var danhmucs = db.DanhMucs.Select(h => h);
+            return PartialView(danhmucs);
         }
     }
 }

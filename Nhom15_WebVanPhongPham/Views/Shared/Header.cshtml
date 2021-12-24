@@ -1,4 +1,5 @@
-﻿<link href="~/wwwroot/css/index.css" rel="stylesheet" />
+﻿@model IEnumerable<Nhom15_WebVanPhongPham.Models.DanhMuc>
+<link href="~/wwwroot/css/index.css" rel="stylesheet" />
 <div class="header">
     <div class="top">
         <div class="header_right">
@@ -39,7 +40,7 @@
 
             <div class="cart">
                 <div class="cart_child">
-                    <a href=@Url.Action("Card","Home") class="header_right-nav--link">Giỏ hàng</a>
+                    <a href=@Url.Action("Giohn","GioHang") class="header_right-nav--link">Giỏ hàng</a>
                     <i class="fas fa-cart-plus"></i>
                 </div>
             </div>
@@ -53,21 +54,12 @@
                 <i class="fas fa-home"></i>
                 <a href="@Url.Action("Index","Home")" class="header_navbar-item--link ">Trang chủ</a>
             </li>
-            <li class="header_navbar-item">
-                <a href="@Url.Action("ProductList","Home")" class="header_navbar-item--link">Sổ - Vở</a>
-            </li>
-            <li class="header_navbar-item">
-                <a href="@Url.Action("ProductList","Home")" class="header_navbar-item--link">Bút</a>
-            </li>
-            <li class="header_navbar-item">
-                <a href="@Url.Action("ProductList","Home")" class="header_navbar-item--link">Đồ dùng văn phòng</a>
-            </li>
-            <li class="header_navbar-item">
-                <a href="@Url.Action("ProductList","Home")" class="header_navbar-item--link">Đồ dùng học sinh</a>
-            </li>
-            <li class="header_navbar-item">
-                <a href="@Url.Action("ProductList","Home")" class="header_navbar-item--link">Balo - Túi cặp</a>
-            </li>
+            @foreach (var item in Model)
+            {
+                <li class="header_navbar-item">
+                    <a href="@Url.Action("ProductList","Home",new { id = item.MaDM})" class="header_navbar-item--link">@Html.DisplayFor(modelItem => item.TenDM)</a>
+                </li>
+            }
         </ul>
     </div>
 </div>
