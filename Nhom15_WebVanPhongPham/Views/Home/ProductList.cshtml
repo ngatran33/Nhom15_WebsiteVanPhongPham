@@ -1,0 +1,127 @@
+﻿@model PagedList.IPagedList<Nhom15_WebVanPhongPham.Models.SanPham>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+
+
+}
+<!--SlideShow-->
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+
+        <img src="~/wwwroot/Anh_Icon/slider_1.jpg" style="width:100%">
+
+    </div>
+
+    <div class="mySlides fade">
+
+        <img src="~/wwwroot/Anh_Icon/slider_2.jpg" style="width:100%">
+
+    </div>
+
+    <div class="mySlides fade">
+
+        <img src="~/wwwroot/Anh_Icon/slider_4.jpg" style="width:100%">
+
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var dots = document.getElementsByClassName("dot");
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        dots[slideIndex - 1].className += " active";
+
+    }
+</script>
+
+<!-- The dots/circles -->
+<!--/SlideShow-->
+<section>
+    <div class="container" style="text-align:center; margin-top:10px;">
+        <h1 id="title-sp"><b>SẢN PHẨM DANH MỤC</b></h1>
+        <div style="float:right">
+            <div>
+                <div class="dl-horizontal" style="font-size: 20px; color: #1372f7 ">
+                    @Html.ActionLink("Tên", "Index", new { sortOder = ViewBag.SapTheoTen }) |
+                    @Html.ActionLink("Giá", "Index", new { sortOder = ViewBag.SapTheoGia })
+
+                </div>
+            </div>
+        </div>
+        <div style="float: right; padding-right: 20px; margin: 0 auto">
+            <p style="font-weight: bold; font-size: 20px">Sắp xếp theo: </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row clearfix">
+            @foreach (var item in Model)
+
+            {
+
+                <div class="col-md-3 col-sm-4 item col-xs-6 post-scroll" style="min-height:500px;">
+                    <div class="product">
+                        <a class="product-img" href="@Url.Action("ChiTietSP","Home", new { id = item.MaSp })">
+                            @{
+                                string ImagePath = "~/wwwroot/Images/" + item.Anh;
+                            }
+                            <img src="@Url.Content(ImagePath)" alt="" width="250" height="250" />
+                        </a>
+                        <div class="product-body">
+                            <h3 class="product-name">
+                                <a href="@Url.Action("ChiTietSP","Home", new {id = item.MaSp})">
+                                    @if (item.TenSP.Length > 25)
+                                    {
+                                        <label>@item.TenSP.Substring(0, 25) ...</label>
+                                    }
+                                    else
+                                    {
+                                        <label> @item.TenSP</label>
+                                    }
+                                </a>
+                            </h3>
+                            <p class="product-category">@Html.DisplayFor(modelItem => item.ThuongHieu)</p>
+                            <h4 class="product-price">@Html.DisplayFor(modelItem => item.Gia) VNĐ</h4>
+
+                        </div>
+                        <div class="add-to-cart">
+                            <a class="add-to-cart-btn" href="@Url.Action("ThemGiohang","GioHang",new { @sMaSp = item.MaSp, @strURL=Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <br />
+        Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</section>
+

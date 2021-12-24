@@ -83,34 +83,40 @@
         <div class="container">
             <div class="row clearfix">
                 @foreach (var item in Model)
+
                 {
-                    <div class="col-md-3 col-sm-4 item col-xs-6 post-scroll" style="min-height:500px;">
-                        <div class="product">
-                            <a class="product-img" href="@Url.Action("ChiTietSP","Home", new { id = item.MaSp })">
-                                @{
-                                    string ImagePath = "~/wwwroot/Images/" + item.Anh;
+                  
+            <div class="col-md-3 col-sm-4 item col-xs-6 post-scroll" style="min-height:500px;">
+                <div class="product">
+                    <a class="product-img" href="@Url.Action("ChiTietSP","Home", new { id = item.MaSp })">
+                        @{
+                            string ImagePath = "~/wwwroot/Images/" + item.Anh;
+                        }
+                        <img src="@Url.Content(ImagePath)" alt="" width="250" height="250" />
+                    </a>
+                    <div class="product-body">
+                        <h3 class="product-name">
+                            <a href="@Url.Action("ChiTietSP","Home", new {id = item.MaSp})">
+                                @if (item.TenSP.Length > 25)
+                                {
+                                    <label>@item.TenSP.Substring(0, 25) ...</label>
                                 }
-                                <img src="@Url.Content(ImagePath)" alt="" width="250" height="250" />
+                                else
+                                {
+                                    <label> @item.TenSP</label>
+                                }
                             </a>
-                            <div class="product-body">
-                                <h3 class="product-name"><a href="@Url.Action("ChiTietSP","Home", new {id = item.MaSp})">
-                                        @if (item.TenSP.Length > 25)
-                                        {
-                                            <label>@item.TenSP.Substring(0, 25) ...</label>
-                                        }
-                                        else
-                                        {
-                                            <label> @item.TenSP</label>
-                                        }</a></h3>
-                                <p class="product-category">@Html.DisplayFor(modelItem => item.ThuongHieu)</p>
-                                <h4 class="product-price">@Html.DisplayFor(modelItem => item.Gia) VNĐ</h4>
-                            </div>
-                            <div class="add-to-cart">
-                                <a class="add-to-cart-btn" href="@Url.Action("AddItem","Cart",new { quantity = 1, masp = item.MaSp})"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                            </div>
-                        </div>
+                        </h3>
+                        <p class="product-category">@Html.DisplayFor(modelItem => item.ThuongHieu)</p>
+                        <h4 class="product-price">@Html.DisplayFor(modelItem => item.Gia) VNĐ</h4>
+                        
                     </div>
-                }
+                    <div class="add-to-cart">
+                        <a class="add-to-cart-btn" href="@Url.Action("ThemGiohang","GioHang",new { @sMaSp = item.MaSp, @strURL=Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                    </div>
+                </div>
+            </div>
+        }
             </div>
             <br />
             Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount

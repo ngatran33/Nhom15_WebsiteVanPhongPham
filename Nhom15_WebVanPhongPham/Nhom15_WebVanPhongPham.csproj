@@ -141,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoansController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +151,7 @@
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DBNhom15.cs" />
     <Compile Include="Models\DonHang.cs" />
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -268,9 +270,14 @@
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\ChiTietSP.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\UserTT.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+=======
+    <Content Include="Views\GioHang\Giohang.cshtml" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+>>>>>>> Lanh
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
