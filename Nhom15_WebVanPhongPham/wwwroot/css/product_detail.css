@@ -1,0 +1,255 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.pl_header_right {
+    width: 14%;
+    height: 100%;
+    /* background-color: aquamarine; */
+    line-height: 30px;
+    margin-left: 86%;
+    color: #000000;
+}
+
+#menu_login ul {
+    background: #FC642D;
+    width: 150px;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#menu_login li {
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+    #menu_login li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        display: block;
+    }
+
+    #menu_login li:hover {
+        background: #FC642D;
+    }
+
+#menu_login ul li {
+    position: relative;
+}
+
+#menu_login .sub-menu {
+    position: absolute;
+    top: 35px;
+    display: none;
+    text-align: center;
+}
+
+#menu_login li:hover .sub-menu {
+    display: block;
+    background: #F48A6C;
+}
+
+.fa-user {
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.content_title {
+    height: 50px;
+    float: clear;
+    margin-top: 20px;
+}
+
+.pd_content {
+    font-family: 'Roboto', sans-serif;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.pd_fa-home {
+    color: #FC642D;
+}
+
+.header_bottom-home {
+    text-decoration: none;
+    color: #FC642D;
+    font-weight: 700;
+}
+    .header_bottom-home:hover {
+        text-decoration: none;
+        color: #0026ff
+    }
+
+.fa-angle-double-right {
+    color: #FC642D;
+
+}
+
+.header_bottom-title {
+    text-decoration: none;
+    color: #FFC312;
+    font-size: 17px;
+    font-weight: 700;
+}
+.header_bottom-title:hover {
+    text-decoration: none;
+    color:#0026ff
+}
+.cp_content_product {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content_right-img {
+    width: 45%;
+    height: 50%;
+    padding: 10px;
+}
+
+    .content_right-img img {
+        width: 80%;
+        height: 100%;
+    }
+
+.content_right-detail {
+    width: 50%;
+    height: 100%;
+    /* background-color: aqua; */
+  
+}
+
+    .content_right-detail h2 {
+        color: var(--primary-color);
+    }
+
+.product_details {
+    width: 100%;
+    height: auto;
+    clear: both;
+}
+
+    .product_details p span {
+        width: 120px;
+        display: inline-block;
+    }
+
+.promotion-price {
+    font-size: 35px;
+    color: #ed1c24;
+    font-weight: 600;
+}
+
+.price_gifts {
+    margin-bottom: 16px;
+    padding-top: 10px;
+}
+
+.mot {
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+}
+
+.hai {
+    width: 120px;
+    display: inline-block;
+    float: left;
+}
+
+.hai_child {
+    width: auto;
+    float: left;
+}
+
+.ba {
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
+.bon {
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
+.nam {
+    width: 160px;
+    float: left;
+    margin-bottom: 18px;
+    margin-left: 20px;
+    border: 1px solid #B7B7B7;
+    border-radius: 3px;
+}
+
+.product_quantity {
+    width: 100%;
+    height: auto;
+    margin-top: 18px;
+}
+
+.button {
+    width: 100%;
+    height: 200px;
+    clear: both;
+}
+
+.btn_them-gio_hang {
+    background-color: #FFFFFF;
+    color: Crimson;
+    font-weight: 600;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 240px;
+    font-size: 16px;
+    border: 2px solid Crimson;
+    border-radius: 10px;
+    float: left;
+    margin: 20px 5px 20px 0px;
+}
+
+.btn_mua_ngay {
+    width: 240px;
+    margin: 20px 5px;
+    background-color: #ed1c24;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    float: left;
+}
+
+.them_gio_hang_link {
+    text-decoration: none;
+    color: #ed1c24;
+}
+.them_gio_hang_link:hover {
+    text-decoration: none;
+    color: black;
+}
+.mua_ngay_link {
+    text-decoration: none;
+    color: white;
+}
+.mua_ngay_link:hover {
+    text-decoration: none;
+    color: black;
+}
+.btn_mua_ngay:hover{
+    background-color: #ff6a00;
+
+}
+.btn_them-gio_hang:hover {
+    background-color: #ff6a00;
+}

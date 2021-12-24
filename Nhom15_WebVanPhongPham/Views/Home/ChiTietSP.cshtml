@@ -1,0 +1,73 @@
+﻿@model Nhom15_WebVanPhongPham.Models.SanPham
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <link href="~/wwwroot/css/product_detail.css" rel="stylesheet" />
+
+
+<div class="pd_content">
+    <div class="content_title">
+        <i class="fas pd_fa-home"></i>
+        <a href=@Url.Action("Index","Home") class="header_bottom-home">Trang chủ</a>
+        <i class="fas fa-angle-double-right"></i>
+        <a href=@Url.Action("ChiTietSP","Home") class="header_bottom-title">Chi tiết sản phẩm</a>
+    </div>
+    <div class="cp_content_product">
+        <div class="content_right-img">
+            @{ string ImagePath = "~/wwwroot/Images/" + Model.Anh; }
+            <img src="@Url.Content(ImagePath)" />
+
+        </div>
+        <div class="content_right-detail">
+            <h2>@Html.DisplayFor(model => model.TenSP)</h2>
+            <div class="price_gifts">
+                <span class="promotion-price">@Html.DisplayFor(model => model.Gia) </span><span style="color: red"><b>VNĐ</b></span>
+            </div>
+            <div class="product_details">
+                <p><span style="font-weight: bold">Khối lượng:</span> @Html.DisplayFor(model => model.KhoiLuong) g</p>
+
+            </div>
+            <div class="product_details">
+                <p><span style="font-weight: bold">Thương hiệu:</span> @Html.DisplayFor(model => model.ThuongHieu)</p>
+
+            </div>
+            <div class="product_details">
+                <p>
+                    <span style="font-weight: bold">Tình trạng:</span>
+                    @if (Model.SLcon > 0)
+                    {
+                        <span> Còn hàng</span>
+                    }
+                    else
+                    { <span style="color : red"> Hết hàng</span>}
+                </p>
+            </div>
+            <div class="product_quantity">
+                <p class="hai" style="font-weight: bold">Số lượng:</p>
+                <p class="hai_child a"></p>
+                <p class="nam">
+                    <span class="mot">-</span>
+                    <span class="ba">1</span>
+                    <span class="bon">+</span>
+                </p>
+            </div>
+            <div class="product_details">
+                <p style="font-weight: bold">Mô tả chi tiết:</p>
+                <p>@Html.DisplayFor(model => model.MoTa)</p>
+            </div>
+            <div class="button">
+                <button type="button" class="btn_them-gio_hang">
+                    <a class="them_gio_hang_link" href="@Url.Action("AddItem","Cart",new { quantity = 1, masp = Model.MaSp })"><i class="fa fa-cart-plus"></i>Thêm vào giỏ hàng</a>
+
+                </button>
+
+                <button type="button" class="btn_mua_ngay"><a href=@Url.Action("Order","Home") class="mua_ngay_link"> Mua ngay</a></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
