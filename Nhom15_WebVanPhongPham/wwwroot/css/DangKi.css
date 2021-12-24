@@ -1,0 +1,78 @@
+﻿#row-breadcrumb {
+    background-color: rgba(0,0,0,.79);
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: -5px;
+}
+
+
+
+.breadcrumb-instro {
+    background: 0 0;
+    margin: 0;
+    padding-left: 0;
+    font-size: 15px;
+    color: #fff;
+}
+
+
+.block-terms {
+    padding:100px 0;
+}
+
+.text-thanks {
+    width: 60%;
+    font-size: 20px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+
+.titlemain {
+    font-size: 50px;
+    text-align: center;
+    color: #333;
+    margin: 0 0 40px;
+}
+.form-bottom {
+    text-align: center;
+    clear: both;
+}
+
+.readall {
+    transition: all .2s linear;
+    color: #fff !important;
+    background-color: #9b0e62;
+    font-size: 20px;
+    font-weight: 200;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+}
+.bao{
+    width:70%;
+    margin:0 auto;
+}
+.form {
+    width: 70%;
+    margin: 0 auto;
+}
+.col1 {
+    width: 50%;
+    margin: 0 auto;
+}
+.the-nhap {
+    width: 100%;
+}
+.control{
+    margin-left:25%;
+}
+.title{
+    text-align: center;
+}

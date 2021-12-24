@@ -161,6 +161,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -180,6 +181,7 @@
     <Content Include="wwwroot\Anh_Icon\slider_1.jpg" />
     <Content Include="wwwroot\Anh_Icon\slider_2.jpg" />
     <Content Include="wwwroot\Anh_Icon\slider_4.jpg" />
+    <Content Include="wwwroot\css\DangKi.css" />
     <Content Include="wwwroot\css\index.css" />
     <Content Include="wwwroot\css\product_detail.css" />
     <Content Include="wwwroot\Images\balohocsinh.png" />
@@ -268,8 +270,19 @@
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\ChiTietSP.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\GioHang\Giohang.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
+=======
+<<<<<<< HEAD
+    <Content Include="Views\Home\UserTT.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+=======
+    <Content Include="Views\GioHang\Giohang.cshtml" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+>>>>>>> Lanh
+>>>>>>> 502c65d0405fba83a7f5ef1951f421f085884739
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

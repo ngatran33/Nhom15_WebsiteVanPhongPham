@@ -8,10 +8,21 @@
                     <li>
                         <a href="#">Đăng nhập <i class="fas fa-angle-down"></i></a>
                         <ul class="sub-menu">
-                            <li><a href=@Url.Action("Account","Home")>Tài Khoản</a></li>
-                            <li><a href=@Url.Action("Index","Home")>Thoát <i class="fas fa-sign-out-alt"></i></a></li>
+                            @if (Session["HoTen"] != null)
+                            {
+                                <li><a class="fade_open" href="@Url.Action("UserTT","Home",new { id = Session["idUser"] })"><strong>@Session["HoTen"]</strong></a></li>
+                                <li><a href="@Url.Action("Logout","Home")">Đăng xuất</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Login","Home")" class="fade_open">Đăng nhập</a></li>
+                                <li><a href="@Url.Action("Register","Home")">Đăng kí</a></li>
+                            }
+                            @*<li><a href=@Url.Action("Account","Home")>Tài Khoản</a></li>
+                            <li><a href=@Url.Action("Index","Home")>Thoát <i class="fas fa-sign-out-alt"></i></a></li>*@
                         </ul>
                     </li>
+                    
                 </ul>
             </div>
         </div>
