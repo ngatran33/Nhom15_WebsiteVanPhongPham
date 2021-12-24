@@ -60,7 +60,7 @@
             </div>
             <div class="button">
                 <button type="button" class="btn_them-gio_hang">
-                    <a class="them_gio_hang_link" href="@Url.Action("AddItem","Cart",new { quantity = 1, masp = Model.MaSp })"><i class="fa fa-cart-plus"></i>Thêm vào giỏ hàng</a>
+                    <a class="them_gio_hang_link" href="@Url.Action("ThemGiohang","GioHang",new { @sMaSp = Model.MaSp, @strURL=Request.Url.ToString() })"><i class="fa fa-cart-plus"></i>Thêm vào giỏ hàng</a>
 
                 </button>
 
