@@ -271,6 +271,10 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\ChiTietSP.cshtml" />
 <<<<<<< HEAD
+    <Content Include="Views\GioHang\Giohang.cshtml" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+=======
+<<<<<<< HEAD
     <Content Include="Views\Home\UserTT.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -278,6 +282,7 @@
     <Content Include="Views\GioHang\Giohang.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
 >>>>>>> Lanh
+>>>>>>> 502c65d0405fba83a7f5ef1951f421f085884739
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

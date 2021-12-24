@@ -107,6 +107,8 @@ namespace Nhom15_WebVanPhongPham.Controllers
             return View(sanPham);
         }
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         public ActionResult UserTT(int? id)
         {
             if (id == null)
@@ -199,6 +201,7 @@ namespace Nhom15_WebVanPhongPham.Controllers
             }
 
 =======
+>>>>>>> 502c65d0405fba83a7f5ef1951f421f085884739
         public ActionResult ProductList(int id, int? page)
         {
             int pageSize = 6;
@@ -210,7 +213,10 @@ namespace Nhom15_WebVanPhongPham.Controllers
         {
             var danhmucs = db.DanhMucs.Select(h => h);
             return PartialView(danhmucs);
+<<<<<<< HEAD
+=======
 >>>>>>> Lanh
+>>>>>>> 502c65d0405fba83a7f5ef1951f421f085884739
         }
     }
 }
