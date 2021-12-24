@@ -1,0 +1,48 @@
+﻿@model Nhom15_WebVanPhongPham.Models.TaiKhoan
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewBag.Title - Hồng Hà</title>
+    <link href="~/Content/login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="login">
+        <h3 style="text-align:center;font-size:xx-large;margin-top:5px;">Đăng nhập</h3>
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form">
+                @Html.TextBoxFor(m => m.TenDN, "", new { @class = "input", @placeholder = "Tên đăng nhập", @required = "Không được để trống" })
+            </div>
+            <div class="form">
+                @Html.PasswordFor(m => m.MatKhau, new { @class = "input", @placeholder = "Mật khẩu", @required = "Không được để trống" })
+            </div>
+            <div style="text-align:center; clear:both;">
+                <div style="margin:20px 0;">
+                    <a href="#" style="text-decoration:none">Quên mật khẩu</a>
+                </div>
+                <button class="readall" type="submit">Đăng nhập</button>
+            </div>
+        }
+        @if (ViewBag.error != null)
+        {
+            <br />
+            <div class="alert alert-danger" role="alert" style="color:red">@ViewBag.error</div>
+        }
+
+    </div>
+
+</body>
+</html>
+
+

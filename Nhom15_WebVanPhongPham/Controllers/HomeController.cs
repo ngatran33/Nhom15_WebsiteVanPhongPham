@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -109,6 +110,98 @@ namespace Nhom15_WebVanPhongPham.Controllers
                 return HttpNotFound();
             }
             return View(sanPham);
+        }
+        public ActionResult UserTT(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TaiKhoan taiKhoan = db.TaiKhoans.Find(id);
+            if (taiKhoan == null)
+            {
+                return HttpNotFound();
+            }
+            return View(taiKhoan);
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserTT([Bind(Include = "MaTk,HoTen,Email,DiaChi,Sdt,TenDN,MatKhau,Quyen")] TaiKhoan taiKhoan)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(taiKhoan).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(taiKhoan);
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string TenDN, string MatKhau)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.TaiKhoans.Where(u => u.TenDN.Equals(TenDN) && u.MatKhau.Equals(MatKhau)).ToList();
+                if (user.Count() > 0)
+                {
+                    //add session
+                    Session["HoTen"] = user.FirstOrDefault().HoTen;
+                    Session["Email"] = user.FirstOrDefault().Email;
+                    Session["idUser"] = user.FirstOrDefault().MaTk;
+                    Session["SDT"] = user.FirstOrDefault().Sdt;
+                    Session["DiaChi"] = user.FirstOrDefault().DiaChi;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.error = "Tài khoản hoặc mật khẩu sai! Vui lòng đăng nhập lại!!!!";
+                }
+
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            List<string> Cities = new List<string>
+            {
+                "Hà Nội","Thanh Hoá","Thái Bình","Nam Định"
+            };
+            ViewBag.Cities = Cities;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register([Bind(Include = "MaTk,HoTen,Email,DiaChi,Sdt,TenDN,MatKhau,Quyen")] TaiKhoan taiKhoan)
+        {
+            var tkcheck = db.TaiKhoans.Where(tk => tk.Email == taiKhoan.Email || tk.TenDN == taiKhoan.TenDN);
+            if (tkcheck.Count() == 0)
+            {
+                if (ModelState.IsValid)
+                {
+                    db.TaiKhoans.Add(taiKhoan);
+                    db.SaveChanges();
+
+                }
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                ViewBag.error = "Tài khoản đã tồn tại";
+                return View(taiKhoan);
+            }
+
         }
     }
 }
